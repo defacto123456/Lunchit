@@ -16,15 +16,11 @@
     <properties>
         <appengine.app.version>1-war</appengine.app.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<org.springframework.version>3.2.3.RELEASE</org.springframework.version>
     </properties>
 
     <dependencies>
         <!-- Compile/runtime dependencies -->
-        <dependency>
-            <groupId>com.google.appengine</groupId>
-            <artifactId>appengine-api-1.0-sdk</artifactId>
-            <version>${appengine.target.version}</version>
-        </dependency>
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>servlet-api</artifactId>
@@ -36,6 +32,40 @@
             <artifactId>jstl</artifactId>
             <version>1.2</version>
         </dependency>
+        
+        <!-- Spring framework -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+			<version>${org.springframework.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+			<version>${org.springframework.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>${org.springframework.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-orm</artifactId>
+			<version>${org.springframework.version}</version>
+		</dependency>
+		
+		<!-- Hibernate -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-entitymanager</artifactId>
+			<version>3.6.8.Final</version>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate.javax.persistence</groupId>
+			<artifactId>hibernate-jpa-2.0-api</artifactId>
+			<version>1.0.0.Final</version>
+		</dependency>
 
         <!-- Test Dependencies -->
         <dependency>

@@ -15,7 +15,7 @@ CREATE  TABLE IF NOT EXISTS `lunchIt`.`user` (
   `user_id` DECIMAL(10) NOT NULL ,
   `first_name` VARCHAR(45) NULL ,
   `last_name` VARCHAR(45) NULL ,
-  `facebook_email` VARCHAR(45) NULL ,
+  `facebook_email` VARCHAR(45) NOT NULL ,
   PRIMARY KEY (`user_id`) )
 ENGINE = InnoDB;
 
@@ -42,6 +42,7 @@ CREATE  TABLE IF NOT EXISTS `lunchIt`.`menu` (
   `menu_name` VARCHAR(45) NOT NULL ,
   `menu_detail` VARCHAR(45) NOT NULL ,
   `restaurant_id` DECIMAL(10) NOT NULL ,
+  `menu_price` DECIMAL(5) NOT NULL ,
   PRIMARY KEY (`menu_id`) ,
   INDEX `restaurant_id` (`restaurant_id` ASC) ,
   CONSTRAINT `restaurant_id`
@@ -61,10 +62,11 @@ CREATE  TABLE IF NOT EXISTS `lunchIt`.`order` (
   `order_id` DECIMAL(10) NOT NULL ,
   `menu_id` DECIMAL(10) NOT NULL ,
   `quantity` INT NOT NULL ,
-  `user_id` DECIMAL(10) NULL ,
+  `user_id` DECIMAL(10) NOT NULL ,
   `date_time` DATETIME NULL ,
   `comment` VARCHAR(45) NULL ,
-  PRIMARY KEY (`order_id`) ,
+  `order_price` DECIMAL(5) NOT NULL ,
+  PRIMARY KEY (`order_id`, `comment`) ,
   INDEX `user_id` (`user_id` ASC) ,
   INDEX `menu_id_idx` (`menu_id` ASC) ,
   CONSTRAINT `user_id`
