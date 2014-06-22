@@ -14,7 +14,7 @@ public interface UserDao {
 	 * 
 	 * @return {@link User}
 	 */
-	public User getUserByUserId(double _userId);
+	public User getUserByUserId(int _userId);
 
 	/**
 	 * create a {@link User}
@@ -30,5 +30,5 @@ public interface UserDao {
 	 * @param _userId
 	 *            the id of specified {@link User} needs to be removed.
 	 */
-	public void removeUserByUserId(double _userId);
+	public void removeUserByUserId(int _userId);
 }

@@ -14,7 +14,7 @@ public interface MenuDao {
 	 * 
 	 * @return {@link Menu}
 	 */
-	public Menu getMenuByMenuId(double _menuId);
+	public Menu getMenuByMenuId(int _menuId);
 
 	/**
 	 * create a {@link Menu}
@@ -30,5 +30,5 @@ public interface MenuDao {
 	 * @param _menuId
 	 *            the id of specified {@link Menu} needs to be removed.
 	 */
-	public void removeMenuByMenuId(double _menuId);
+	public void removeMenuByMenuId(int _menuId);
 }

@@ -14,7 +14,7 @@ public interface OrderDao {
 	 * 
 	 * @return {@link Order}
 	 */
-	public Order getOrderByOrderId(double _orderId);
+	public Order getOrderByOrderId(int _orderId);
 
 	/**
 	 * create a {@link Order}
@@ -30,5 +30,5 @@ public interface OrderDao {
 	 * @param _orderId
 	 *            the id of specified {@link Order} needs to be removed.
 	 */
-	public void removeUserByOrderId(double _orderId);
+	public void removeUserByOrderId(int _orderId);
 }

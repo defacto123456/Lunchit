@@ -28,7 +28,7 @@ public class OrderDaoImpl implements OrderDao {
 	/**
 	 * {@inheritDoc}
 	 */
-	public Order getOrderByOrderId(double _orderId) {
+	public Order getOrderByOrderId(int _orderId) {
 		return entityManager.find(Order.class, _orderId);
 	}
 
@@ -42,7 +42,7 @@ public class OrderDaoImpl implements OrderDao {
 	/**
 	 * {@inheritDoc}
 	 */
-	public void removeUserByOrderId(double _orderId) {
+	public void removeUserByOrderId(int _orderId) {
 		entityManager.remove(getOrderByOrderId(_orderId));
 	}
 

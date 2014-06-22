@@ -5,6 +5,8 @@ import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -21,8 +23,9 @@ import javax.persistence.Table;
 public class Order {
 
 	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "order_id", nullable = false)
-	private double orderId;
+	private int orderId;
 	
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "menu_id")
@@ -44,11 +47,11 @@ public class Order {
 	@Column(name = "order_price", nullable = false)
 	private double orderPrice;
 
-	public double getOrderId() {
+	public int getOrderId() {
 		return orderId;
 	}
 
-	public void setOrderId(double _orderId) {
+	public void setOrderId(int _orderId) {
 		orderId = _orderId;
 	}
 

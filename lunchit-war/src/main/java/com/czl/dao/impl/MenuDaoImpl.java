@@ -24,7 +24,7 @@ public class MenuDaoImpl implements MenuDao {
 	/**
 	 * {@inheritDoc}
 	 */
-	public Menu getMenuByMenuId(double _menuId) {
+	public Menu getMenuByMenuId(int _menuId) {
 		return entityManager.find(Menu.class, _menuId);
 	}
 
@@ -38,7 +38,7 @@ public class MenuDaoImpl implements MenuDao {
 	/**
 	 * {@inheritDoc}
 	 */
-	public void removeMenuByMenuId(double _menuId) {
+	public void removeMenuByMenuId(int _menuId) {
 		entityManager.remove(getMenuByMenuId(_menuId));
 	}
 
