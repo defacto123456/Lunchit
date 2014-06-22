@@ -1,4 +1,4 @@
-package com.czl.li;
+package com.czl.li.resources;
 
 import java.util.ArrayList;
 import java.util.List;
