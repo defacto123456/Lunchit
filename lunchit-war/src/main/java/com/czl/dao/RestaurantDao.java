@@ -17,7 +17,7 @@ public interface RestaurantDao {
 	 *            restaurant Id
 	 * @return the {@link Restaurant} specified by _restaurantId
 	 */
-	public Restaurant getRestaurantById(double _restaurantId);
+	public Restaurant getRestaurantById(int _restaurantId);
 
 	/**
 	 * create a {@link Restaurant}
@@ -33,5 +33,5 @@ public interface RestaurantDao {
 	 * @param _restuarantId
 	 *            the id of specified {@link Restaurant} needs to be removed.
 	 */
-	public void removeRestaurantById(double _restaurantId);
+	public void removeRestaurantById(int _restaurantId);
 }

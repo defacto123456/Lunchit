@@ -2,6 +2,8 @@ package com.czl.data.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -15,17 +17,18 @@ import javax.persistence.Table;
 @Table(name = "restaurant", catalog = "lunchIt")
 public class Restaurant {
 	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "restaurant_id", nullable = false)
-	private double restaurantId;
+	private int restaurantId;
 
 	@Column(name = "restaurant_name", nullable = false)
 	private String restaurantName;
 
-	public double getRestaurantId() {
+	public int getRestaurantId() {
 		return restaurantId;
 	}
 
-	public void setRestaurantId(double _restaurantId) {
+	public void setRestaurantId(int _restaurantId) {
 		restaurantId = _restaurantId;
 	}
 

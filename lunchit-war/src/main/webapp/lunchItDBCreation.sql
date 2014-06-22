@@ -12,11 +12,12 @@ USE `lunchIt` ;
 DROP TABLE IF EXISTS `lunchIt`.`user` ;
 
 CREATE  TABLE IF NOT EXISTS `lunchIt`.`user` (
-  `user_id` DECIMAL(10) NOT NULL ,
+  `user_id` INT NOT NULL ,
   `first_name` VARCHAR(45) NULL ,
   `last_name` VARCHAR(45) NULL ,
   `facebook_email` VARCHAR(45) NOT NULL ,
-  PRIMARY KEY (`user_id`) )
+  PRIMARY KEY (`user_id`) ,
+  INDEX `facebook_email` (`facebook_email` ASC) )
 ENGINE = InnoDB;
 
 
@@ -26,7 +27,7 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `lunchIt`.`restaurant` ;
 
 CREATE  TABLE IF NOT EXISTS `lunchIt`.`restaurant` (
-  `restaurant_id` DECIMAL(10) NOT NULL ,
+  `restaurant_id` INT NOT NULL ,
   `restaurant_name` VARCHAR(45) NOT NULL ,
   PRIMARY KEY (`restaurant_id`) )
 ENGINE = InnoDB;
@@ -38,11 +39,12 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `lunchIt`.`menu` ;
 
 CREATE  TABLE IF NOT EXISTS `lunchIt`.`menu` (
-  `menu_id` DECIMAL(10) NOT NULL ,
+  `menu_id` INT NOT NULL ,
   `menu_name` VARCHAR(45) NOT NULL ,
   `menu_detail` VARCHAR(45) NOT NULL ,
-  `restaurant_id` DECIMAL(10) NOT NULL ,
-  `menu_price` DECIMAL(5) NOT NULL ,
+  `restaurant_id` INT NOT NULL ,
+  `menu_price` DOUBLE NOT NULL ,
+  `menu_availability` TINYINT(1) NULL ,
   PRIMARY KEY (`menu_id`) ,
   INDEX `restaurant_id` (`restaurant_id` ASC) ,
   CONSTRAINT `restaurant_id`
@@ -59,13 +61,13 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `lunchIt`.`order` ;
 
 CREATE  TABLE IF NOT EXISTS `lunchIt`.`order` (
-  `order_id` DECIMAL(10) NOT NULL ,
-  `menu_id` DECIMAL(10) NOT NULL ,
+  `order_id` INT NOT NULL ,
+  `menu_id` INT NOT NULL ,
   `quantity` INT NOT NULL ,
-  `user_id` DECIMAL(10) NOT NULL ,
+  `user_id` INT NOT NULL ,
   `date_time` DATETIME NULL ,
   `comment` VARCHAR(45) NULL ,
-  `order_price` DECIMAL(5) NOT NULL ,
+  `order_price` DOUBLE NOT NULL ,
   PRIMARY KEY (`order_id`, `comment`) ,
   INDEX `user_id` (`user_id` ASC) ,
   INDEX `menu_id_idx` (`menu_id` ASC) ,

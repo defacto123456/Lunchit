@@ -27,7 +27,7 @@ public class UserDaoImpl implements UserDao {
 	/**
 	 * {@inheritDoc}
 	 */
-	public User getUserByUserId(double _userId) {
+	public User getUserByUserId(int _userId) {
 		return entityManager.find(User.class, _userId);
 	}
 
@@ -41,7 +41,7 @@ public class UserDaoImpl implements UserDao {
 	/**
 	 * {@inheritDoc}
 	 */
-	public void removeUserByUserId(double _userId) {
+	public void removeUserByUserId(int _userId) {
 		entityManager.remove(getUserByUserId(_userId));
 	}
 

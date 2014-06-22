@@ -2,6 +2,8 @@ package com.czl.data.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -15,8 +17,9 @@ import javax.persistence.Table;
 @Table(name = "user", catalog = "lunchIt")
 public class User {
 	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "user_id", nullable = false)
-	private double userId;
+	private int userId;
 
 	@Column(name = "first_name", nullable = true)
 	private String firstName;
@@ -27,11 +30,11 @@ public class User {
 	@Column(name = "facebook_email", nullable = false)
 	private String fbEmail;
 
-	public double getUserId() {
+	public int getUserId() {
 		return userId;
 	}
 
-	public void setUserId(double _userId) {
+	public void setUserId(int _userId) {
 		userId = _userId;
 	}
 

@@ -27,7 +27,7 @@ public class RestaurantDaoImpl implements RestaurantDao {
 	/**
 	 * {@inheritDoc}
 	 */
-	public Restaurant getRestaurantById(double _restaurantId) {
+	public Restaurant getRestaurantById(int _restaurantId) {
 		return entityManager.find(Restaurant.class, _restaurantId);
 	}
 
@@ -41,7 +41,7 @@ public class RestaurantDaoImpl implements RestaurantDao {
 	/**
 	 * {@inheritDoc}
 	 */
-	public void removeRestaurantById(double _restaurantId) {
+	public void removeRestaurantById(int _restaurantId) {
 		entityManager.remove(getRestaurantById(_restaurantId));
 	}
 
