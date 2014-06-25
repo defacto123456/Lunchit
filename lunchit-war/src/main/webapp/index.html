@@ -1,6 +1,6 @@
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app=lunchItApp>
 <head>
 	<meta charset="utf-8">
 	<title>Lunch It</title>
@@ -17,9 +17,18 @@
 	<script src="/js/bootstrap.js"></script>
 	<script src="/js/jquery-1.10.2.js"></script>
 	<script src="/js/jquery-ui-1.10.4.js"></script>
+	<script src="/js/angular/angular.js"></script>
+	<script src="js/controllers.js"></script>
 </head>
 
-<body>
+<body ng-controller="MenuListCtrl">
+
+	<ul>
+		<li ng-repeat="menu in menus">
+				{{menu.menuName}}
+			<p>{{menu.menuDetail}}</p>
+		</li>
+	</ul>
 
 	<div class="navbar navbar-inverse navbar-fixed-top">
 		<div class="navbar-inner">
@@ -99,6 +108,16 @@
 				</select>
   			</div>
   		</div>	
+  		<hr/>
+  		<div class="row">
+			<div class="span1">Total</div>
+  			<div class="span1">$32.00</div>
+  			<div class="span1">Total Qty</div>
+  			<div class="span1">3</div>
+  			<div class="span2">
+  				<button class="btn btn-warning btn-small" type="button">Check Out</button>
+  			</div>
+  		</div>
 	</div>
 	
 </body>
