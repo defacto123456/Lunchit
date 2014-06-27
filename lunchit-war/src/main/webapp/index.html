@@ -23,13 +23,6 @@
 
 <body ng-controller="MenuListCtrl">
 
-	<ul>
-		<li ng-repeat="menu in menus">
-				{{menu.menuName}}
-			<p>{{menu.menuDetail}}</p>
-		</li>
-	</ul>
-
 	<div class="navbar navbar-inverse navbar-fixed-top">
 		<div class="navbar-inner">
 			<div class="container">
@@ -51,6 +44,22 @@
 			</div>
 		</div>
 	</div>
+	
+	
+	
+<!-- 		<ul>
+		<li ng-repeat="menu in menus">
+				{{menu.menuName}}
+			<p>{{menu.menuDetail}}</p>
+		</li>
+		</ul> -->
+	
+
+
+
+
+
+
 
 	<div class="container">
 		<div class="row">
@@ -58,21 +67,11 @@
 				<h3>福星楼</h3>
 			</div>
 		</div>
-		<div class="row">
-			<div class="span1">豆豉鸡</div>
-  			<div class="span1">$6.00</div>
-  			<div class="span1">Qty</div>
-  			<div>
-  				<select class="form-control span03">
-  					<option>1</option>
-  					<option>2</option>
-  					<option>3</option>
-				</select>
-  			</div>
-		</div>
-		<div class="row">
-			<div class="span1">麻婆豆腐</div>
-  			<div class="span1">$6.50</div>
+		
+		
+		<div class="row" ng-repeat="menu in menus">
+			<div class="span1">{{menu.menuName}}</div>
+  			<div class="span1">${{menu.price}}</div>
   			<div class="span1">Qty</div>
   			<div>
   				<select class="form-control span03">
@@ -83,31 +82,6 @@
   			</div>
 		</div>
 		
-		<div class="row">
-			<div class="span1">香菇时菜</div>
-  			<div class="span1">$7.00</div>
-  			<div class="span1">Qty</div>
-  			<div>
-  				<select class="form-control span03">
-  					<option>1</option>
-  					<option>2</option>
-  					<option>3</option>
-				</select>
-  			</div>
-		</div>
-		
-		<div class="row">
-			<div class="span1">水煮鱼</div>
-  			<div class="span1">$6.00</div>
-  			<div class="span1">Qty</div>
-  			<div>
-  				<select class="form-control span03">
-  					<option>1</option>
-  					<option>2</option>
-  					<option>3</option>
-				</select>
-  			</div>
-  		</div>	
   		<hr/>
   		<div class="row">
 			<div class="span1">Total</div>
