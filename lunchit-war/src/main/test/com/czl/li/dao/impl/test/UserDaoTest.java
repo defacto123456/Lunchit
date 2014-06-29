@@ -19,7 +19,7 @@ public class UserDaoTest {
 	private static final String FB_EMAIL = "test@facebook.com";
 	private User user;
 
-	private ApplicationContext applicationContext = new ClassPathXmlApplicationContext(
+	private final ApplicationContext applicationContext = new ClassPathXmlApplicationContext(
 			"/META-INF/applicationContext.xml");
 
 	private UserDao userDao;
@@ -38,12 +38,19 @@ public class UserDaoTest {
 
 	@Test
 	public void testGetUserById() {
+		final int userId = 0;
 		user.setFbEmail(FB_EMAIL);
 		user.setFirstName(FIRST_NAME);
 		user.setLastName(LAST_NAME);
-		user.setUserId(1);
+		user.setUserId(userId);
+
+		// make sure userId is available
+		if (userDao.getUserByUserId(userId) != null) {
+			userDao.removeUserByUserId(userId);
+		}
+
 		userDao.createUser(user);
-		User newUser = userDao.getUserByUserId(user.getUserId());
+		final User newUser = userDao.getUserByUserId(user.getUserId());
 		Assert.assertEquals(newUser.getFbEmail(), user.getFbEmail());
 		userDao.removeUserByUserId(user.getUserId());
 	}
