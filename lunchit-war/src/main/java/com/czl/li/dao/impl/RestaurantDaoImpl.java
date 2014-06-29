@@ -30,7 +30,6 @@ public class RestaurantDaoImpl implements RestaurantDao {
 	/**
 	 * {@inheritDoc}
 	 */
-	@Override
 	public Restaurant getRestaurantById(final int _restaurantId) {
 		return entityManager.find(Restaurant.class, _restaurantId);
 	}
@@ -38,7 +37,6 @@ public class RestaurantDaoImpl implements RestaurantDao {
 	/**
 	 * {@inheritDoc}
 	 */
-	@Override
 	public void createRestaurant(final Restaurant _restaurant) {
 		entityManager.persist(_restaurant);
 	}
@@ -46,7 +44,6 @@ public class RestaurantDaoImpl implements RestaurantDao {
 	/**
 	 * {@inheritDoc}
 	 */
-	@Override
 	public void removeRestaurantById(final int _restaurantId) {
 		entityManager.remove(getRestaurantById(_restaurantId));
 	}
@@ -54,9 +51,9 @@ public class RestaurantDaoImpl implements RestaurantDao {
 	/**
 	 * {@inheritDoc}
 	 */
-	@Override
 	public List<Restaurant> getAllRestaurants() {
-		final Query query = entityManager.createQuery("select restaurant from Restaurant restaurant");
+		final Query query = entityManager
+				.createQuery("select restaurant from Restaurant restaurant");
 		return query.getResultList();
 	}
 
