@@ -7,7 +7,9 @@ public interface UserService {
 	 * based on the email
 	 * 
 	 * @param email
+	 * @param firstName
+	 * @param lastName
 	 */
-	void verifyUserEmail(String email);
+	void verifyUserEmail(String email, String firstName, String lastName);
 
 }

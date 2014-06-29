@@ -41,6 +41,8 @@ public class UserResource {
 		final MultivaluedMap<String, String> queryParams = uriInfo
 				.getQueryParameters();
 		final String email = queryParams.getFirst("email");
-		userService.verifyUserEmail(email);
+		final String firstName = queryParams.getFirst("firstname");
+		final String lastName = queryParams.getFirst("lastname");
+		userService.verifyUserEmail(email, firstName, lastName);
 	}
 }
