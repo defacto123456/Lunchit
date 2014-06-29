@@ -1,10 +1,16 @@
-package com.czl.dao.impl;
+package com.czl.li.dao.impl;
+
+import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
-import com.czl.dao.MenuDao;
-import com.czl.data.model.Menu;
+import org.springframework.stereotype.Repository;
+
+import com.czl.li.dao.MenuDao;
+import com.czl.li.data.model.Menu;
+import com.czl.li.data.model.Restaurant;
 
 /**
  * Menu data access implementation
@@ -12,6 +18,7 @@ import com.czl.data.model.Menu;
  * @author Yunfei
  * 
  */
+@Repository("menuDao")
 public class MenuDaoImpl implements MenuDao {
 
 	@PersistenceContext
@@ -40,6 +47,12 @@ public class MenuDaoImpl implements MenuDao {
 	 */
 	public void removeMenuByMenuId(int _menuId) {
 		entityManager.remove(getMenuByMenuId(_menuId));
+	}
+
+	public List<Menu> getAllMenuByRestaurant(Restaurant _restaurant) {
+		Query query = entityManager.createQuery("select menu from Menu menu where menu.restaurant=:restaurant");
+		query.setParameter("restaurant", _restaurant);
+		return query.getResultList();
 	}
 
 }

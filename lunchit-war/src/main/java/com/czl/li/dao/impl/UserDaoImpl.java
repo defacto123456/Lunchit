@@ -1,12 +1,14 @@
-package com.czl.dao.impl;
+package com.czl.li.dao.impl;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
-import com.czl.dao.UserDao;
-import com.czl.data.model.User;
+import com.czl.li.dao.UserDao;
+import com.czl.li.data.model.User;
 
 /**
  * user data access implementation
@@ -15,6 +17,7 @@ import com.czl.data.model.User;
  * 
  */
 @Repository("userDao")
+@Transactional
 public class UserDaoImpl implements UserDao {
 
 	@PersistenceContext
@@ -43,6 +46,15 @@ public class UserDaoImpl implements UserDao {
 	 */
 	public void removeUserByUserId(int _userId) {
 		entityManager.remove(getUserByUserId(_userId));
+	}
+
+	public boolean isUserExisted(String _fbEmail) {
+		Query query = entityManager
+				.createQuery("select count(usr) from User usr where usr.fbEmail=:fbEmail");
+		query.setParameter("fbEmail", _fbEmail);
+		Long resultNumber = (Long) query.getSingleResult();
+
+		return resultNumber.intValue() == 1;
 	}
 
 }

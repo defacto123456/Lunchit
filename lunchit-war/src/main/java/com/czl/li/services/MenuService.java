@@ -3,8 +3,8 @@ package com.czl.li.services;
 import java.util.List;
 import java.util.Map;
 
-import com.czl.data.model.Menu;
-import com.czl.data.model.Restaurant;
+import com.czl.li.data.model.Menu;
+import com.czl.li.data.model.Restaurant;
 
 /**
  * The Menu service with all the related business logic

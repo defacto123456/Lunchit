@@ -1,6 +1,9 @@
-package com.czl.dao;
+package com.czl.li.dao;
 
-import com.czl.data.model.Menu;
+import java.util.List;
+
+import com.czl.li.data.model.Menu;
+import com.czl.li.data.model.Restaurant;
 
 /**
  * Menu data access interface
@@ -31,4 +34,12 @@ public interface MenuDao {
 	 *            the id of specified {@link Menu} needs to be removed.
 	 */
 	public void removeMenuByMenuId(int _menuId);
+
+	/**
+	 * get all menus for one restaurant
+	 * 
+	 * @param _restaurant
+	 * @return a list of menus for the specific restaurant
+	 */
+	public List<Menu> getAllMenuByRestaurant(Restaurant _restaurant);
 }

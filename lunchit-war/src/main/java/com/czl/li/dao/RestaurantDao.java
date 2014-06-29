@@ -1,6 +1,8 @@
-package com.czl.dao;
+package com.czl.li.dao;
 
-import com.czl.data.model.Restaurant;
+import java.util.List;
+
+import com.czl.li.data.model.Restaurant;
 
 /**
  * restaurant data access interface
@@ -34,4 +36,11 @@ public interface RestaurantDao {
 	 *            the id of specified {@link Restaurant} needs to be removed.
 	 */
 	public void removeRestaurantById(int _restaurantId);
+
+	/**
+	 * get all resaurants.
+	 * 
+	 * @return List of all restaurants
+	 */
+	public List<Restaurant> getAllRestaurants();
 }

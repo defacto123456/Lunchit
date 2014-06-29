@@ -12,8 +12,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
-import com.czl.data.model.Menu;
-import com.czl.data.model.Restaurant;
+import com.czl.li.data.model.Menu;
+import com.czl.li.data.model.Restaurant;
 import com.czl.li.services.MenuService;
 
 /**

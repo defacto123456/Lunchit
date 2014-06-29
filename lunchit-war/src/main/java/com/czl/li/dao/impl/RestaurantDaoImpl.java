@@ -1,12 +1,15 @@
-package com.czl.dao.impl;
+package com.czl.li.dao.impl;
+
+import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 import org.springframework.stereotype.Repository;
 
-import com.czl.dao.RestaurantDao;
-import com.czl.data.model.Restaurant;
+import com.czl.li.dao.RestaurantDao;
+import com.czl.li.data.model.Restaurant;
 
 /**
  * restaurant data access implementation
@@ -43,6 +46,14 @@ public class RestaurantDaoImpl implements RestaurantDao {
 	 */
 	public void removeRestaurantById(int _restaurantId) {
 		entityManager.remove(getRestaurantById(_restaurantId));
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	public List<Restaurant> getAllRestaurants() {
+		Query query = entityManager.createQuery("select restaurant from Restaurant restaurant");
+		return query.getResultList();
 	}
 
 }

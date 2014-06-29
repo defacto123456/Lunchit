@@ -1,5 +1,6 @@
 package com.czl.li.services.implementation;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -7,10 +8,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
-import com.czl.dao.MenuDao;
-import com.czl.dao.RestaurantDao;
-import com.czl.data.model.Menu;
-import com.czl.data.model.Restaurant;
+import com.czl.li.dao.MenuDao;
+import com.czl.li.dao.RestaurantDao;
+import com.czl.li.data.model.Menu;
+import com.czl.li.data.model.Restaurant;
 import com.czl.li.services.MenuService;
 
 /**
@@ -31,8 +32,13 @@ public class MenuServiceImpl implements MenuService {
 	private RestaurantDao restaurantDao;
 
 	public Map<Restaurant, List<Menu>> getAllMenuForAllRestaurant() {
-		// TODO Auto-generated method stub
-		return null;
+		Map<Restaurant, List<Menu>> mapRestToMenus = new HashMap<Restaurant, List<Menu>>();
+		List<Restaurant> listRestaurants = restaurantDao.getAllRestaurants();
+		for (Restaurant restaurant : listRestaurants) {
+			List<Menu> listMenus = menuDao.getAllMenuByRestaurant(restaurant);
+			mapRestToMenus.put(restaurant, listMenus);
+		}
+		return mapRestToMenus;
 	}
 
 }

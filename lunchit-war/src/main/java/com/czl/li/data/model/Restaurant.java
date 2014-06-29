@@ -1,9 +1,7 @@
-package com.czl.data.model;
+package com.czl.li.data.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -17,7 +15,6 @@ import javax.persistence.Table;
 @Table(name = "restaurant", catalog = "lunchIt")
 public class Restaurant {
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "restaurant_id", nullable = false)
 	private int restaurantId;
 

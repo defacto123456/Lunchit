@@ -1,10 +1,8 @@
-package com.czl.data.model;
+package com.czl.li.data.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -21,7 +19,6 @@ import javax.persistence.Table;
 public class Menu {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "menu_id", nullable = false)
 	private int menuId;
 
@@ -37,6 +34,9 @@ public class Menu {
 
 	@Column(name = "menu_price", nullable = false)
 	private double menuPrice;
+
+	@Column(name = "menu_availability", nullable = true)
+	private boolean menuAvailability;
 
 	public int getMenuId() {
 		return menuId;
@@ -76,5 +76,13 @@ public class Menu {
 
 	public void setMenuPrice(double _menuPrice) {
 		menuPrice = _menuPrice;
+	}
+
+	public boolean getMenuAvailability() {
+		return menuAvailability;
+	}
+
+	public void setMenuPrice(boolean _menuAvailability) {
+		menuAvailability = _menuAvailability;
 	}
 }

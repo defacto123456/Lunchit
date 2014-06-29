@@ -14,7 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
-import com.czl.data.model.Order;
+import com.czl.li.data.model.Order;
 import com.czl.li.services.OrderService;
 
 /**
@@ -54,6 +54,6 @@ public class OrderResource {
 			return null;
 		}
 
-		return orderService.getOrdersByUser(userid);
+		return orderService.getOrdersByUser(Integer.valueOf(userid));
 	}
 }
