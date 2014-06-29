@@ -23,36 +23,40 @@ public class RestaurantDaoImpl implements RestaurantDao {
 	@PersistenceContext
 	EntityManager entityManager;
 
-	public void setEntityManager(EntityManager entityManager) {
+	public void setEntityManager(final EntityManager entityManager) {
 		this.entityManager = entityManager;
 	}
 
 	/**
 	 * {@inheritDoc}
 	 */
-	public Restaurant getRestaurantById(int _restaurantId) {
+	@Override
+	public Restaurant getRestaurantById(final int _restaurantId) {
 		return entityManager.find(Restaurant.class, _restaurantId);
 	}
 
 	/**
 	 * {@inheritDoc}
 	 */
-	public void createRestaurant(Restaurant _restaurant) {
+	@Override
+	public void createRestaurant(final Restaurant _restaurant) {
 		entityManager.persist(_restaurant);
 	}
 
 	/**
 	 * {@inheritDoc}
 	 */
-	public void removeRestaurantById(int _restaurantId) {
+	@Override
+	public void removeRestaurantById(final int _restaurantId) {
 		entityManager.remove(getRestaurantById(_restaurantId));
 	}
 
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	public List<Restaurant> getAllRestaurants() {
-		Query query = entityManager.createQuery("select restaurant from Restaurant restaurant");
+		final Query query = entityManager.createQuery("select restaurant from Restaurant restaurant");
 		return query.getResultList();
 	}
 
