@@ -31,6 +31,13 @@ public class MenuServiceImpl implements MenuService {
 	@Qualifier("restaurantDao")
 	private RestaurantDao restaurantDao;
 
+	/**
+	 * Get all menus for all restaurants
+	 * 
+	 * @return all menus for all restaurants as a map. The key of each entry is
+	 *         the restaurant. The value is a list of menu. It could be null if
+	 *         not available.
+	 */
 	public Map<Restaurant, List<Menu>> getAllMenuForAllRestaurant() {
 		Map<Restaurant, List<Menu>> mapRestToMenus = new HashMap<Restaurant, List<Menu>>();
 		List<Restaurant> listRestaurants = restaurantDao.getAllRestaurants();
