@@ -1,5 +1,6 @@
 package com.czl.li.dao.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -50,9 +51,13 @@ public class MenuDaoImpl implements MenuDao {
 	}
 
 	public List<Menu> getAllMenuByRestaurant(Restaurant _restaurant) {
-		Query query = entityManager.createQuery("select menu from Menu menu where menu.restaurant=:restaurant");
+		Query query = entityManager
+				.createQuery("select menu from com.czl.li.data.model.Menu menu where menu.restaurant=:restaurant and "
+						+ "menu.menuAvailability = true");
+		List<Menu> menuList = new ArrayList<Menu>();
 		query.setParameter("restaurant", _restaurant);
-		return query.getResultList();
+		menuList.addAll(query.getResultList());
+		return menuList;
 	}
 
 }

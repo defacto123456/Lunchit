@@ -1,4 +1,4 @@
-package com.czl.li.services.implementation;
+package com.czl.li.services.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;

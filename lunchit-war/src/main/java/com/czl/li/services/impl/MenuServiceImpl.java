@@ -1,4 +1,4 @@
-package com.czl.li.services.implementation;
+package com.czl.li.services.impl;
 
 import java.util.HashMap;
 import java.util.List;
@@ -43,15 +43,15 @@ public class MenuServiceImpl implements MenuService {
 
 		Map<Restaurant, List<Menu>> mapRestToMenus = new HashMap<Restaurant, List<Menu>>();
 		List<Restaurant> listRestaurants = restaurantDao.getAllRestaurants();
-		// System.out.println("size: " + listRestaurants.size());
-		// System.out.println(listRestaurants.get(0).getClass().toString());
-		//
-		// for (Restaurant restaurant : listRestaurants) {
-		// List<Menu> listMenus = menuDao.getAllMenuByRestaurant(restaurant);
-		// mapRestToMenus.put(restaurant, listMenus);
-		// }
-		// return mapRestToMenus;
-		return null;
+		System.out.println("size: " + listRestaurants.size());
+		System.out.println(listRestaurants.get(0).getClass().toString());
+
+		for (Restaurant restaurant : listRestaurants) {
+			List<Menu> listMenus = menuDao.getAllMenuByRestaurant(restaurant);
+			mapRestToMenus.put(restaurant, listMenus);
+		}
+		return mapRestToMenus;
+		// return null;
 	}
 
 }

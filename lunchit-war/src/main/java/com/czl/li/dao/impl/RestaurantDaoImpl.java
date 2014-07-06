@@ -12,6 +12,7 @@ import org.springframework.stereotype.Repository;
 import com.czl.li.dao.RestaurantDao;
 import com.czl.li.data.model.Restaurant;
 
+
 /**
  * restaurant data access implementation
  * 
@@ -54,7 +55,7 @@ public class RestaurantDaoImpl implements RestaurantDao {
 	 */
 	public List<Restaurant> getAllRestaurants() {
 		final Query query = entityManager
-				.createQuery("select restaurant from Restaurant restaurant");
+				.createQuery("select restaurant from com.czl.li.data.model.Restaurant restaurant");
 
 		List<Restaurant> restList = new ArrayList<Restaurant>();
 
