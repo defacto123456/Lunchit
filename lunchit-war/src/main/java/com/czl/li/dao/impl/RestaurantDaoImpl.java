@@ -1,5 +1,6 @@
 package com.czl.li.dao.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -54,7 +55,14 @@ public class RestaurantDaoImpl implements RestaurantDao {
 	public List<Restaurant> getAllRestaurants() {
 		final Query query = entityManager
 				.createQuery("select restaurant from Restaurant restaurant");
-		return query.getResultList();
+
+		List<Restaurant> restList = new ArrayList<Restaurant>();
+
+		// restList.add(new Restaurant());
+		// return restList;
+		restList.addAll(query.getResultList());
+
+		return restList;
 	}
 
 }

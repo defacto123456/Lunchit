@@ -16,14 +16,14 @@ import javax.persistence.Table;
  * @author Yunfei
  * 
  */
-@Entity
+@Entity(name = "com.czl.li.data.model.Order")
 @Table(name = "order", catalog = "lunchIt")
 public class Order {
 
 	@Id
 	@Column(name = "order_id", nullable = false)
 	private int orderId;
-	
+
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "menu_id")
 	private Menu menu;

@@ -18,9 +18,14 @@ lunchItApp.controller('MenuListCtrl', function ($scope, $http) {
 	  method: "GET",
 //	  params: ({duration: $scope.tour.duration, destination: $scope.selected})
   }).success(function(data) {
+	  
 //	  attractionListService.setAttractionsLists(data);
 //	  $scope.attractionsList = attractionListService.getAttractionsLists();
-	  alert("hi");
+
+	  
+	  
+	  
+	  	  alert(data);
   });
   
 });

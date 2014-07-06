@@ -39,13 +39,19 @@ public class MenuServiceImpl implements MenuService {
 	 *         not available.
 	 */
 	public Map<Restaurant, List<Menu>> getAllMenuForAllRestaurant() {
+		System.out.println("222222");
+
 		Map<Restaurant, List<Menu>> mapRestToMenus = new HashMap<Restaurant, List<Menu>>();
 		List<Restaurant> listRestaurants = restaurantDao.getAllRestaurants();
-		for (Restaurant restaurant : listRestaurants) {
-			List<Menu> listMenus = menuDao.getAllMenuByRestaurant(restaurant);
-			mapRestToMenus.put(restaurant, listMenus);
-		}
-		return mapRestToMenus;
+		// System.out.println("size: " + listRestaurants.size());
+		// System.out.println(listRestaurants.get(0).getClass().toString());
+		//
+		// for (Restaurant restaurant : listRestaurants) {
+		// List<Menu> listMenus = menuDao.getAllMenuByRestaurant(restaurant);
+		// mapRestToMenus.put(restaurant, listMenus);
+		// }
+		// return mapRestToMenus;
+		return null;
 	}
 
 }

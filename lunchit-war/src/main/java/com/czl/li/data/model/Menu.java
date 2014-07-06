@@ -14,7 +14,7 @@ import javax.persistence.Table;
  * @author Yunfei
  * 
  */
-@Entity
+@Entity(name = "com.czl.li.data.model.Menu")
 @Table(name = "menu", catalog = "lunchIt")
 public class Menu {
 

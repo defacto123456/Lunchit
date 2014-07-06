@@ -40,6 +40,8 @@ public class MenuResource {
 	@Path("/get")
 	@Produces(MediaType.APPLICATION_JSON)
 	public Map<Restaurant, List<Menu>> getMenuInJson() {
+		System.out.println("111111");
+
 		return menuService.getAllMenuForAllRestaurant();
 	}
 }
