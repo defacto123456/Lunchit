@@ -1,6 +1,6 @@
 
 <!DOCTYPE html>
-<html lang="en" ng-app=lunchItApp>
+<html lang="en">
 <head>
 	<meta charset="utf-8">
 	<title>Lunch It</title>
@@ -14,86 +14,34 @@
 		href="/css/bootstrap-responsive.css" />
 	
 	<script src="/js/main.js"></script>
-	<script src="/js/bootstrap.js"></script>
-	<script src="/js/jquery-1.10.2.js"></script>
-	<script src="/js/jquery-ui-1.10.4.js"></script>
-	<script src="/js/angular/angular.js"></script>
-	<script src="js/controllers.js"></script>
+	<script src="/js/bootstrap/bootstrap.js"></script>
+	<script src="/js/jquery/jquery-1.10.2.js"></script>
+	<script src="/js/jquery/jquery-ui-1.10.4.js"></script>
+	<script src="/js/facebook-api.js"></script>
 </head>
 
-<body ng-controller="MenuListCtrl">
-
-	<div class="navbar navbar-inverse navbar-fixed-top">
-		<div class="navbar-inner">
-			<div class="container">
-				<button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-					<span class="icon-bar"></span> 
-					<span class="icon-bar"></span> 
-					<span class="icon-bar"></span>
-				</button>
-				<a class="brand" href="#">Lunch It</a>
-				<div class="nav-collapse collapse">
-					<ul class="nav">
-						<li class="active"><a href="#">Home</a></li>
-						<li><a href="#about">About</a></li>
-						<li><a href="">Wed Jun 18 11:08 PM</a></li>
-					</ul>
+<body>
+	<div class="container-fluid">
+		<h2 class="login_header">Lunch It</h2>
+		<div class="row-fluid">
+			<div class="span6">
+				<div class="mycontent-left">
+					<img class="img-rounded img-polaroid" src="image/biandang.JPG"
+						width="450px" />
 				</div>
-				
-				<!--/.nav-collapse -->
+			</div>
+			<div class="span6">
+				<div class="mycontent-right">
+					<div class="fb-login-button" data-max-rows="1" data-size="large" 
+												 data-show-faces="false" data-auto-logout-link="true"
+												 data-scope="public_profile" onlogin="processFBLogin()">
+					</div>
+				</div>
 			</div>
 		</div>
+		<h4 class="login_footer">A convenient, delicious and affordable lunch option for you.</h4>
 	</div>
-	
-	
-	
-<!-- 		<ul>
-		<li ng-repeat="menu in menus">
-				{{menu.menuName}}
-			<p>{{menu.menuDetail}}</p>
-		</li>
-		</ul> -->
-	
 
-
-
-
-
-
-
-	<div class="container">
-		<div class="row">
-			<div class="span12">
-				<h3>福星楼</h3>
-			</div>
-		</div>
-		
-		
-		<div class="row" ng-repeat="menu in menus">
-			<div class="span1">{{menu.menuName}}</div>
-  			<div class="span1">${{menu.price}}</div>
-  			<div class="span1">Qty</div>
-  			<div>
-  				<select class="form-control span03">
-  					<option>1</option>
-  					<option>2</option>
-  					<option>3</option>
-				</select>
-  			</div>
-		</div>
-		
-  		<hr/>
-  		<div class="row">
-			<div class="span1">Total</div>
-  			<div class="span1">$32.00</div>
-  			<div class="span1">Total Qty</div>
-  			<div class="span1">3</div>
-  			<div class="span2">
-  				<button class="btn btn-warning btn-small" type="button">Check Out</button>
-  			</div>
-  		</div>
-	</div>
-	
 </body>
 </html>
 

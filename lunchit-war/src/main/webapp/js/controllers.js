@@ -21,9 +21,6 @@ lunchItApp.controller('MenuListCtrl', function ($scope, $http) {
 	  
 //	  attractionListService.setAttractionsLists(data);
 //	  $scope.attractionsList = attractionListService.getAttractionsLists();
-
-	  
-	  
 	  
 	  	  alert(data);
   });
