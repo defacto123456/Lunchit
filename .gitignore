@@ -10,4 +10,6 @@ out
 .idea
 .settings
 .classpath
-.project
+.project/deploy.bat
+/.project
+/deploy.bat
