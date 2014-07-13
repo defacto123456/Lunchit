@@ -10,18 +10,23 @@
 	
 	<link type="text/css" rel="stylesheet" href="/css/bootstrap.css" />
 	<link type="text/css" rel="stylesheet" href="/css/main.css" />
-	<link type="text/css" rel="stylesheet"
-		href="/css/bootstrap-responsive.css" />
+	<link type="text/css" rel="stylesheet" href="/css/bootstrap-responsive.css" />
 	
-	<script src="/js/main.js"></script>
-	<script src="/js/bootstrap.js"></script>
-	<script src="/js/jquery-1.10.2.js"></script>
-	<script src="/js/jquery-ui-1.10.4.js"></script>
+	<script src="/js/bootstrap/bootstrap.js"></script>
+	<script src="/js/jquery/jquery-1.10.2.js"></script>
+	<script src="/js/jquery/jquery-ui-1.10.4.js"></script>
 	<script src="/js/angular/angular.js"></script>
-	<script src="js/controllers.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.min.js"></script>
+	
+	
+	<script src="/js/app.js"></script>
+	<script src="/js/shoppingCart.js"></script>
+	<script src="/js/controllers.js"></script>
+	
 </head>
 
 <body ng-controller="MenuListCtrl">
+
 
 	<div class="navbar navbar-inverse navbar-fixed-top">
 		<div class="navbar-inner">
@@ -39,55 +44,36 @@
 						<li><a href="">Wed Jun 18 11:08 PM</a></li>
 					</ul>
 				</div>
-				
 				<!--/.nav-collapse -->
 			</div>
 		</div>
 	</div>
 	
-	
-	
-<!-- 		<ul>
-		<li ng-repeat="menu in menus">
-				{{menu.menuName}}
-			<p>{{menu.menuDetail}}</p>
-		</li>
-		</ul> -->
-	
-
-
-
-
-
-
 
 	<div class="container">
-		<div class="row">
-			<div class="span12">
-				<h3>福星楼</h3>
+		<div ng-repeat="rest in restaurants">
+			<div class="row">
+				<div class="span12">
+					<h3>{{rest[0].resturant.restaurantName}}</h3>
+				</div>
 			</div>
-		</div>
-		
-		
-		<div class="row" ng-repeat="menu in menus">
-			<div class="span1">{{menu.menuName}}</div>
-  			<div class="span1">${{menu.price}}</div>
-  			<div class="span1">Qty</div>
-  			<div>
-  				<select class="form-control span03">
-  					<option>1</option>
-  					<option>2</option>
-  					<option>3</option>
-				</select>
-  			</div>
+			
+			<div class="row" ng-repeat="menu in rest">
+				<div class="span3">{{menu.menuName}}</div>
+  				<div class="span1">${{menu.menuPrice}}</div>
+  				<div class="span1">
+  					<a href="" ng-click="cart.addItem(menu.menuId, 1)">add to cart</a>
+  				</div>
+			</div>
+			<br/>
 		</div>
 		
   		<hr/>
   		<div class="row">
-			<div class="span1">Total</div>
-  			<div class="span1">$32.00</div>
-  			<div class="span1">Total Qty</div>
-  			<div class="span1">3</div>
+			<div class="span3">Total Charge</div>
+  			<div class="span1">{{cart.getTotalPrice() | currency}}</div>
+  			<div class="span2">Total Order</div>
+  			<div class="span1">{{cart.getTotalCount()}}</div>
   			<div class="span2">
   				<button class="btn btn-warning btn-small" type="button">Check Out</button>
   			</div>
