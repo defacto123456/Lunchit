@@ -20,9 +20,11 @@ public class UserServiceImpl implements UserService {
 		if (!userDao.isUserExisted(email)) {
 			// create new user
 			final User user = new User();
+			// TODO user id?
 			user.setFbEmail(email);
 			user.setFirstName(firstName);
 			user.setLastName(lastName);
+			System.out.println("Create a new user for " + email);
 			userDao.createUser(user);
 		}
 	}

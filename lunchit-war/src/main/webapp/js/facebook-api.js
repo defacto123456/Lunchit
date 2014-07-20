@@ -53,14 +53,25 @@ function statusChangeCallback(response) {
 	// app know the current login status of the person.
 	// Full docs on the response object can be found in the documentation
 	// for FB.getLoginStatus().
-	console.log('window.location.pathname=' + window.location.pathname);
 	if (response.status === 'connected') {
 		// Logged into your app and Facebook.
+		// Check to see whether the user is in our database
+		console.log('verify user');
+		FB.api('/me', function(response) {
+			console.log('Successful login for: ' + response.name);
+//			window.location = '/rest/json/user/get?email=' + response.email
+//					+ '&firstname=' + response.first_name + '&lastname='
+//					+ response.last_name;
+			verifyUser(response);
+		});
+		
 		// Redirect to the menu page
+		console.log('redirect to menu.html');
 		if (window.location.pathname != '/menu.html') {
 
 			window.location = '/menu.html';
 		}
+		
 	} else {
 		// Please login
 		if (window.location.pathname != '/') {
@@ -70,3 +81,19 @@ function statusChangeCallback(response) {
 	}
 }
 
+// Verify the user. Add the user to the database if it doesn't exist.
+function verifyUser(response) {
+	var xmlhttp;
+	if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+		xmlhttp = new XMLHttpRequest();
+	} else {// code for IE6, IE5
+		xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+	}
+	xmlhttp.onreadystatechange = function() {
+		// do nothing
+	};
+	xmlhttp.open("GET", "/rest/json/user/get?email=" + response.email
+			+ '&firstname=' + response.first_name + '&lastname='
+			+ response.last_name, true);
+	xmlhttp.send();
+}

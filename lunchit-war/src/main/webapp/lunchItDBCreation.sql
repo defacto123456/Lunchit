@@ -12,7 +12,7 @@ USE `lunchIt` ;
 DROP TABLE IF EXISTS `lunchIt`.`user` ;
 
 CREATE  TABLE IF NOT EXISTS `lunchIt`.`user` (
-  `user_id` INT NOT NULL ,
+  `user_id` INT NOT NULL AUTO_INCREMENT,
   `first_name` VARCHAR(45) NULL ,
   `last_name` VARCHAR(45) NULL ,
   `facebook_email` VARCHAR(45) NOT NULL ,

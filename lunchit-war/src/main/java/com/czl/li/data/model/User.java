@@ -2,6 +2,8 @@ package com.czl.li.data.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -15,6 +17,7 @@ import javax.persistence.Table;
 @Table(name = "user", catalog = "lunchIt")
 public class User {
 	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "user_id", nullable = false)
 	private int userId;
 
@@ -31,7 +34,7 @@ public class User {
 		return userId;
 	}
 
-	public void setUserId(int _userId) {
+	public void setUserId(final int _userId) {
 		userId = _userId;
 	}
 
@@ -39,7 +42,7 @@ public class User {
 		return firstName;
 	}
 
-	public void setFirstName(String _firstName) {
+	public void setFirstName(final String _firstName) {
 		firstName = _firstName;
 	}
 
@@ -47,7 +50,7 @@ public class User {
 		return lastName;
 	}
 
-	public void setLastName(String _lastName) {
+	public void setLastName(final String _lastName) {
 		lastName = _lastName;
 	}
 
@@ -55,7 +58,7 @@ public class User {
 		return fbEmail;
 	}
 
-	public void setFbEmail(String _fbEmail) {
+	public void setFbEmail(final String _fbEmail) {
 		fbEmail = _fbEmail;
 	}
 }

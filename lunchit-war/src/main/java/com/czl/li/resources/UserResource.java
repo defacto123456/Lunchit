@@ -8,6 +8,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.MultivaluedMap;
 import javax.ws.rs.core.UriInfo;
 
+import org.apache.commons.validator.routines.EmailValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
@@ -38,11 +39,17 @@ public class UserResource {
 	@Path("/get")
 	@Produces(MediaType.APPLICATION_JSON)
 	public void valifyUser(@Context final UriInfo uriInfo) {
+		System.out.println("valifyUser");
 		final MultivaluedMap<String, String> queryParams = uriInfo
 				.getQueryParameters();
 		final String email = queryParams.getFirst("email");
 		final String firstName = queryParams.getFirst("firstname");
 		final String lastName = queryParams.getFirst("lastname");
-		userService.verifyUserEmail(email, firstName, lastName);
+		if (EmailValidator.getInstance().isValid(email)) {
+			System.out.println("Email = " + email);
+			System.out.println("First Name = " + firstName);
+			System.out.println("Last Name = " + lastName);
+			userService.verifyUserEmail(email, firstName, lastName);
+		}
 	}
 }
